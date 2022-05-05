@@ -1,0 +1,162 @@
+- settings
+	- title
+	- description
+	- language
+
+- contracts
+	- id
+	- title
+	- content
+
+- bill_types
+	- id
+	- title
+- admins
+	- id
+	- fullname
+	- email
+	- password
+	- created_at
+	- updated_at
+
+- users
+	- id
+	- email
+	- password
+	- phone
+	- name
+	- surname
+	- country
+	- city
+	- created_at
+	- updated_at
+	- deleted_at
+
+- user_address
+	- id
+	- user_id
+	- title
+	- name
+	- surname
+	- phone
+	- city
+	- address
+	- created_at
+	- updated_at
+	- deleted_at
+
+- user_billing_information
+	- id
+	- user_id
+	- title
+	- name
+	- surname
+	- phone
+	- city
+	- address
+	- bill_type
+	- company_name
+	- tax_administration
+	- tax_number
+	- e-fatura
+	- created_at
+	- updated_at
+	- deleted_at
+
+- user_contracts
+	- id
+	- user_id
+	- constract_id
+	- content
+
+- product_categories
+	- id
+	- parent_id
+	- title
+	- description
+	- created_at
+	- updated_at
+	- deleted_at
+
+- products
+	- id
+	- category_id
+	- title
+	- description
+	- image
+	- video
+	- price
+	- discount
+	- currency
+	- tax
+	- created_at
+	- updated_at
+	- deleted_at
+
+- product_images
+	- id
+	- local_url
+	- global_url
+	- alt
+	- created_at
+	- updated_at
+
+- product_videos
+	- id
+	- local_url
+	- global_url
+	- alt
+	- created_at
+	- updated_at
+
+- product_votes
+	- id
+	- user_id
+	- degree
+	- created_at
+	- updated_at
+
+- product_comments
+	- id
+	- user_id
+	- comment
+	- created_at
+
+- orders
+	- id
+	- user_id
+	- total
+	- discount
+	- tax
+	- payment_type
+	- status
+	- created_at
+	- deleted_at
+
+- order_products (mongodb için orders tablosu içine eklenebilir)
+	- id
+	- order_id
+	- products_id
+	- quantity
+	- price
+	- discount
+	- currency
+	- tax
+	- created_at
+	- updated_at
+	- deleted_at
+
+- order_contracts
+	- id
+	- order_id
+	- constract_id
+	- content
+
+
+	
+	
+	
+	
+
+	
+	
