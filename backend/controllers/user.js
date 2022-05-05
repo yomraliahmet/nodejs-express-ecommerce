@@ -1,5 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 const User = require('../models/Users');
 const Response = require('../helpers/response');
@@ -13,9 +14,11 @@ function index(arg) {
             const newData = data.map((data) => {
                 return {
                     id: data._id,
-                    username: data.username,
-                    first_name: data.first_name,
-                    last_name: data.last_name,
+                    email: data.email,
+                    phone: data.phone,
+                    name: data.name,
+                    surname: data.surname,
+                    country: data.country,
                     city: data.city
                 };
             });
@@ -33,11 +36,11 @@ function index(arg) {
 // Add new record.
 function store(arg) {
 
-    const { username, password, first_name, last_name, city } = arg.req.body;
+    const { email, password, phone, name, surname, country, city } = arg.req.body;
 
     // Record Exists
     User.findOne({
-        username
+        email
     }, (err, user) => {
         if (err) { throw err; }
 
@@ -49,10 +52,12 @@ function store(arg) {
             bcrypt.hash(password, 10)
                 .then((hash) => {
                     const user = new User({
-                        username,
+                        email,
                         password: hash,
-                        first_name,
-                        last_name,
+                        phone,
+                        name,
+                        surname,
+                        country,
                         city
                     });
 
@@ -61,9 +66,11 @@ function store(arg) {
                         .then((data) => {
                             const response = Response.make(200, 'Success', {
                                 id: data._id,
-                                username: data.username,
-                                first_name: data.first_name,
-                                last_name: data.last_name,
+                                email: data.email,
+                                phone: data.phone,
+                                name: data.name,
+                                surname: data.surname,
+                                country: data.country,
                                 city: data.city
                             });
                             arg.res.status(200).json(response);
@@ -88,15 +95,17 @@ function show(arg) {
 
     User.findById(id)
         .then((data) => {
-            if (!data) {
+            if (!data || data.deleted) {
                 const response = Response.make(404, 'User Not Found', null);
                 arg.res.status(404).json(response);
             } else {
                 const response = Response.make(200, 'Success', {
                     id: data._id,
-                    username: data.username,
-                    first_name: data.first_name,
-                    last_name: data.last_name,
+                    email: data.email,
+                    phone: data.phone,
+                    name: data.name,
+                    surname: data.surname,
+                    country: data.country,
                     city: data.city
                 });
                 arg.res.status(200).json(response);
@@ -111,42 +120,54 @@ function show(arg) {
 // Update a record
 function update(arg) {
     const id = arg.req.params.id;
-    const { product_code, name } = arg.req.body;
+    const { country, city } = arg.req.body;
+    const updatedAt = new Date();
 
-    User.findByIdAndUpdate(id, { product_code, name }, { new: true })
-        .then((data) => {
-            if (!data) {
-                const response = Response.make(404, 'User Not Found', null);
-                arg.res.status(404).json(response);
-            } else {
-                const response = Response.make(200, 'Success', {
-                    id: data._id,
-                    username: data.username,
-                    first_name: data.first_name,
-                    last_name: data.last_name,
-                    city: data.city
-                });
-                arg.res.status(200).json(response);
-            }
-        })
-        .catch((err) => {
-            const response = Response.make(400, 'Bad Request', null);
-            arg.res.status(400).json(response);
-        })
+    User.findById(id)
+    .then((data) => {
+        if (!data || data.deleted) {
+            const response = Response.make(404, 'User Not Found', null);
+            arg.res.status(404).json(response);
+        } else {
+
+            data.updateOne(
+                { deleted: false }, 
+                { country, city, updatedAt },
+                { new: true }
+            );
+
+            const response = Response.make(200, 'Success', {
+                id: data._id,
+                email: data.email,
+                phone: data.phone,
+                name: data.name,
+                surname: data.surname,
+                country: data.country,
+                city: data.city
+            });
+            arg.res.status(200).json(response);
+        }
+    })
+    .catch((err) => {
+        const response = Response.make(400, 'Bad Request', null);
+        arg.res.status(400).json(response);
+    });
 }
 
 // Delete a record.
 function remove(arg) {
-    const id = arg.req.params.id;
+    const id = mongoose.Types.ObjectId(arg.req.params.id);
 
-    User.findByIdAndRemove(id)
+    User.findOne({ _id: id, deleted: false})
         .then((user) => {
             if (!user) {
                 const response = Response.make(404, 'User Not Found', null);
                 arg.res.status(404).json(response);
             } else {
-                const response = Response.make(200, 'Success', null);
-                arg.res.status(200).json(response);
+                User.deleteById(id, (err, user) => {
+                    const response = Response.make(200, 'Success', null);
+                    arg.res.status(200).json(response);
+                });
             }
         })
         .catch((err) => {

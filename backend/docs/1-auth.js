@@ -13,12 +13,12 @@ function authLogin()
      *           schema:
      *             type: object 
      *             required:
-     *               - username 
+     *               - email 
      *               - password 
      *             properties:
-     *               username:
+     *               email:
      *                 type: string
-     *                 default: john_doe
+     *                 default: john_doe@hotmail.com
      *               password:
      *                 type: string
      *                 default: 123456

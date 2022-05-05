@@ -13,21 +13,32 @@ function createUser()
      *           schema:
      *             type: object 
      *             required:
-     *               - username 
+     *               - email 
      *               - password 
+     *               - phone 
+     *               - name 
+     *               - surname 
+     *               - country 
+     *               - city 
      *             properties:
-     *               username:
+     *               email:
      *                 type: string
-     *                 default: john_doe
+     *                 default: john_doe@hotmail.com
      *               password:
      *                 type: string
      *                 default: 123456
-     *               first_name:
+     *               phone:
+     *                 type: string
+     *                 default: 05387459865
+     *               name:
      *                 type: string
      *                 default: John
-     *               last_name:
+     *               surname:
      *                 type: string
      *                 default: Doe
+     *               country:
+     *                 type: string
+     *                 default: Turkey
      *               city:
      *                 type: string
      *                 default: Kayseri
@@ -52,15 +63,21 @@ function createUser()
      *                     id:
      *                       type: string
      *                       default: 1
-     *                     username:
+     *                     email:
      *                       type: string
-     *                       default: john_doe
-     *                     first_name:
+     *                       default: john_doe@hotmail.com
+     *                     phone:
+     *                       type: string
+     *                       default: 05387459865
+     *                     name:
      *                       type: string
      *                       default: John
-     *                     last_name:
+     *                     surname:
      *                       type: string
      *                       default: Doe
+     *                     country:
+     *                       type: string
+     *                       default: Turkey
      *                     city:
      *                       type: string
      *                       default: Kayseri
@@ -114,15 +131,21 @@ function getUsers()
      *                       id:
      *                         type: integer
      *                         default: 1
-     *                       username:
+     *                       email:
      *                         type: string
-     *                         default: john_doe
-     *                       first_name:
+     *                         default: john_doe@homtmail.com
+     *                       phone:
+     *                         type: string
+     *                         default: 05387459865
+     *                       name:
      *                         type: string
      *                         default: John
-     *                       last_name:
+     *                       surname:
      *                         type: string
      *                         default: Doe
+     *                       country:
+     *                         type: string
+     *                         default: Turkey
      *                       city:
      *                         type: string
      *                         default: Kayseri
@@ -179,17 +202,23 @@ function getUser()
      *                   type: object
      *                   properties:
      *                     id:
-     *                       type: integer
-     *                       default: 1
-     *                     username:
      *                       type: string
-     *                       default: john_doe
-     *                     first_name:
+     *                       default: 1
+     *                     email:
+     *                       type: string
+     *                       default: john_doe@hotmail.com
+     *                     phone:
+     *                       type: string
+     *                       default: 05387459865
+     *                     name:
      *                       type: string
      *                       default: John
-     *                     last_name:
+     *                     surname:
      *                       type: string
      *                       default: Doe
+     *                     country:
+     *                       type: string
+     *                       default: Turkey
      *                     city:
      *                       type: string
      *                       default: Kayseri
@@ -237,15 +266,12 @@ function updateUser()
      *           schema:
      *             type: object 
      *             required:
-     *               - username 
-     *               - password 
+     *               - country 
+     *               - city 
      *             properties:
-     *               first_name:
+     *               country:
      *                 type: string
-     *                 default: John
-     *               last_name:
-     *                 type: string
-     *                 default: Doe
+     *                 default: Turkey
      *               city:
      *                 type: string
      *                 default: Kayseri
@@ -266,17 +292,23 @@ function updateUser()
      *                   type: object
      *                   properties:
      *                     id:
-     *                       type: integer
-     *                       default: 1
-     *                     username:
      *                       type: string
-     *                       default: john_doe
-     *                     first_name:
+     *                       default: 1
+     *                     email:
+     *                       type: string
+     *                       default: john_doe@hotmail.com
+     *                     phone:
+     *                       type: string
+     *                       default: 05387459865
+     *                     name:
      *                       type: string
      *                       default: John
-     *                     last_name:
+     *                     surname:
      *                       type: string
      *                       default: Doe
+     *                     country:
+     *                       type: string
+     *                       default: Turkey
      *                     city:
      *                       type: string
      *                       default: Kayseri

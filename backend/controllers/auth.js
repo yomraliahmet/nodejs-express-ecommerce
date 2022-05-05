@@ -8,10 +8,10 @@ const { signAccessToken, signRefreshToken, verifyRefreshToken, destroyAccesToken
 
 // Auth login
 function login(arg) {
-    const { username, password } = arg.req.body;
+    const { email, password } = arg.req.body;
 
     User.findOne({
-        username
+        email
     }, (err, user) => {
         if (err) {
             throw err;

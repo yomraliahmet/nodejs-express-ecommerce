@@ -41,7 +41,7 @@ const verifyAccessToken = (req, res, next) => {
 
                 RefreshToken.findOne({ user_id: decoded.user_id })
                 .then((data) => {
-                    console.log(data);
+                    //console.log(data);
                     if(data) {                        
                         req.token = token;
                         req.decode = decoded;
