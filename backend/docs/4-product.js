@@ -13,15 +13,43 @@ function createProduct()
      *           schema:
      *             type: object 
      *             required:
-     *               - product_code 
+     *               - category_id
      *               - name 
+     *               - slug 
      *             properties:
-     *               product_code:
+     *               category_id:
      *                 type: string
-     *                 default: 3571596547
+     *                 default: 8UF2DS45F1G4D2D4F
      *               name:
      *                 type: string
      *                 default: Product 1
+     *               slug:
+     *                 type: string
+     *                 default: product-1
+     *               description:
+     *                 type: string
+     *                 default: Product 1 Description
+     *               image_url:
+     *                 type: string
+     *                 default: null
+     *               video_url:
+     *                 type: string
+     *                 default: null
+     *               price:
+     *                 type: decimal
+     *                 default: 20.50
+     *               discount:
+     *                 type: decimal
+     *                 default: 0.50
+     *               tax:
+     *                 type: decimal
+     *                 default: 0.18
+     *               currency:
+     *                 type: string
+     *                 default: TL
+     *               is_active:
+     *                 type: boolean
+     *                 default: true
      *     tags:
      *       - Products 
      *     security:
@@ -45,12 +73,36 @@ function createProduct()
      *                     id:
      *                       type: string
      *                       default: 1
-     *                     product_code:
+     *                     category_id:
      *                       type: string
-     *                       default: 3579516547
+     *                       default: 1
      *                     name:
      *                       type: string
      *                       default: Product 1
+     *                     slug:
+     *                       type: string
+     *                       default: product-1
+     *                     description:
+     *                       type: string
+     *                       default: Product 1 Description
+     *                     image_url:
+     *                       type: string
+     *                       default: null
+     *                     video_url:
+     *                       type: string
+     *                       default: null
+     *                     price:
+     *                       type: decimal
+     *                       default: 20.50
+     *                     discount:
+     *                       type: decimal
+     *                       default: 0.50
+     *                     tax:
+     *                       type: decimal
+     *                       default: 0.18
+     *                     is_active:
+     *                       type: boolean
+     *                       default: true
      *       default:
      *         content:
      *           application/json:
@@ -99,14 +151,38 @@ function getProducts()
      *                   items:
      *                     properties:
      *                       id:
-     *                         type: integer
-     *                         default: 1
-     *                       product_code:
      *                         type: string
-     *                         default: 3579516542
+     *                         default: 1
+     *                       category_id:
+     *                         type: string
+     *                         default: 1
      *                       name:
      *                         type: string
      *                         default: Product 1
+     *                       slug:
+     *                         type: string
+     *                         default: product-1
+     *                       description:
+     *                         type: string
+     *                         default: Product 1 Description
+     *                       image_url:
+     *                         type: string
+     *                         default: null
+     *                       video_url:
+     *                         type: string
+     *                         default: null
+     *                       price:
+     *                         type: decimal
+     *                         default: 20.50
+     *                       discount:
+     *                         type: decimal
+     *                         default: 0.50
+     *                       tax:
+     *                         type: decimal
+     *                         default: 0.18
+     *                       is_active:
+     *                         type: boolean
+     *                         default: true
      *       default:
      *         content:
      *           application/json:
@@ -160,14 +236,38 @@ function getProduct()
      *                   type: object
      *                   properties:
      *                     id:
-     *                       type: integer
-     *                       default: 1
-     *                     product_code:
      *                       type: string
-     *                       default: 3579874568
+     *                       default: 1
+     *                     category_id:
+     *                       type: string
+     *                       default: 1
      *                     name:
      *                       type: string
      *                       default: Product 1
+     *                     slug:
+     *                       type: string
+     *                       default: product-1
+     *                     description:
+     *                       type: string
+     *                       default: Product 1 Description
+     *                     image_url:
+     *                       type: string
+     *                       default: null
+     *                     video_url:
+     *                       type: string
+     *                       default: null
+     *                     price:
+     *                       type: decimal
+     *                       default: 20.50
+     *                     discount:
+     *                       type: decimal
+     *                       default: 0.50
+     *                     tax:
+     *                       type: decimal
+     *                       default: 0.18
+     *                     is_active:
+     *                       type: boolean
+     *                       default: true
      *       default:
      *         content:
      *           application/json:
@@ -212,15 +312,43 @@ function updateProduct()
      *           schema:
      *             type: object 
      *             required:
-     *               - product_code 
+     *               - category_id
      *               - name 
+     *               - slug 
      *             properties:
-     *               product_code:
+     *               category_id:
      *                 type: string
-     *                 default: 6549518526
+     *                 default: 8UF2DS45F1G4D2D4F
      *               name:
      *                 type: string
      *                 default: Product 1
+     *               slug:
+     *                 type: string
+     *                 default: product-1
+     *               description:
+     *                 type: string
+     *                 default: Product 1 Description
+     *               image_url:
+     *                 type: string
+     *                 default: null
+     *               video_url:
+     *                 type: string
+     *                 default: null
+     *               price:
+     *                 type: decimal
+     *                 default: 20.50
+     *               discount:
+     *                 type: decimal
+     *                 default: 0.50
+     *               tax:
+     *                 type: decimal
+     *                 default: 0.18
+     *               currency:
+     *                 type: string
+     *                 default: TL
+     *               is_active:
+     *                 type: boolean
+     *                 default: true
      *     responses:
      *       200:
      *         content:
@@ -238,14 +366,38 @@ function updateProduct()
      *                   type: object
      *                   properties:
      *                     id:
-     *                       type: integer
-     *                       default: 1
-     *                     product_code:
      *                       type: string
-     *                       default: 1597894562
+     *                       default: 1
+     *                     category_id:
+     *                       type: string
+     *                       default: 1
      *                     name:
      *                       type: string
      *                       default: Product 1
+     *                     slug:
+     *                       type: string
+     *                       default: product-1
+     *                     description:
+     *                       type: string
+     *                       default: Product 1 Description
+     *                     image_url:
+     *                       type: string
+     *                       default: null
+     *                     video_url:
+     *                       type: string
+     *                       default: null
+     *                     price:
+     *                       type: decimal
+     *                       default: 20.50
+     *                     discount:
+     *                       type: decimal
+     *                       default: 0.50
+     *                     tax:
+     *                       type: decimal
+     *                       default: 0.18
+     *                     is_active:
+     *                       type: boolean
+     *                       default: true
      *       default:
      *         content:
      *           application/json:

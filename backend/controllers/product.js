@@ -12,8 +12,17 @@ function index(arg) {
             const newData = data.map((data) => {
                 return {
                     id: data._id,
-                    product_code: data.product_code,
-                    name: data.name
+                    category_id: data.category_id,
+                    name: data.name,
+                    slug: data.slug,
+                    description: data.description,
+                    image_url: data.image_url,
+                    video_url: data.video_url,
+                    price: parseFloat(data.price.toString()),
+                    discount: parseFloat(data.discount.toString()),
+                    tax: parseFloat(data.tax.toString()),
+                    currency: data.currency,
+                    is_active: data.is_active,
                 };
             });
 
@@ -30,11 +39,23 @@ function index(arg) {
 // Add new record.
 function store(arg) {
 
-    const { name, product_code } = arg.req.body;
+    const { 
+        category_id,
+        name,
+        slug,
+        description,
+        image_url,
+        video_url,
+        price,
+        discount,
+        tax,
+        currency,
+        is_active,
+    } = arg.req.body;
 
     // Record Exists
     Product.findOne({
-        name, product_code
+        name, slug
     }, (err, product) => {
         if (err) { throw err; }
 
@@ -44,16 +65,34 @@ function store(arg) {
         } else {
             // Add record
             const product = new Product({
-                product_code,
-                name
+                category_id,
+                name,
+                slug,
+                description,
+                image_url,
+                video_url,
+                price,
+                discount,
+                tax,
+                currency,
+                is_active,
             });
 
             product.save()
                 .then((data) => {
                     const response = Response.make(200, 'Success', {
                         id: data._id,
-                        product_code: data.product_code,
-                        name: data.name
+                        category_id: data.category_id,
+                        name: data.name,
+                        slug: data.slug,
+                        description: data.description,
+                        image_url: data.image_url,
+                        video_url: data.video_url,
+                        price: parseFloat(data.price.toString()),
+                        discount: parseFloat(data.discount.toString()),
+                        tax: parseFloat(data.tax.toString()),
+                        currency: data.currency,
+                        is_active: data.is_active,
                     });
                     arg.res.status(200).json(response);
                 })
@@ -77,8 +116,17 @@ function show(arg) {
             } else {
                 const response = Response.make(200, 'Success', {
                     id: data._id,
-                    product_code: data.product_code,
-                    name: data.name
+                    category_id: data.category_id,
+                    name: data.name,
+                    slug: data.slug,
+                    description: data.description,
+                    image_url: data.image_url,
+                    video_url: data.video_url,
+                    price: parseFloat(data.price.toString()),
+                    discount: parseFloat(data.discount.toString()),
+                    tax: parseFloat(data.tax.toString()),
+                    currency: data.currency,
+                    is_active: data.is_active,
                 });
                 arg.res.status(200).json(response);
             }
@@ -92,9 +140,33 @@ function show(arg) {
 // Update a record
 function update(arg) {
     const id = arg.req.params.id;
-    const { name, product_code } = arg.req.body;
+    const { 
+        category_id,
+        name,
+        slug,
+        description,
+        image_url,
+        video_url,
+        price,
+        discount,
+        tax,
+        currency,
+        is_active,
+    } = arg.req.body;
 
-    Product.findByIdAndUpdate(id, { name, product_code }, { new: true })
+    Product.findByIdAndUpdate(id, { 
+        category_id,
+        name,
+        slug,
+        description,
+        image_url,
+        video_url,
+        price,
+        discount,
+        tax,
+        currency,
+        is_active,
+    }, { new: true })
         .then((data) => {
             if (!data) {
                 const response = Response.make(404, 'Product Not Found', null);
@@ -102,8 +174,17 @@ function update(arg) {
             } else {
                 const response = Response.make(200, 'Success', {
                     id: data._id,
-                    product_code: data.product_code,
-                    name: data.name
+                    category_id: data.category_id,
+                    name: data.name,
+                    slug: data.slug,
+                    description: data.description,
+                    image_url: data.image_url,
+                    video_url: data.video_url,
+                    price: parseFloat(data.price.toString()),
+                    discount: parseFloat(data.discount.toString()),
+                    tax: parseFloat(data.tax.toString()),
+                    currency: data.currency,
+                    is_active: data.is_active,
                 });
                 arg.res.status(200).json(response);
             }
