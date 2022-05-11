@@ -106,9 +106,16 @@ function store(arg) {
 
 // Get one record.
 function show(arg) {
-    const id = arg.req.params.id;
+    const id = arg.req.params.id ?? null;
+    let filter;
 
-    Product.findById(id)
+    if(id.length == 24) {
+        filter = { _id: id }
+    } else {
+        filter = { slug: id }
+    }
+
+    Product.findOne(filter)
         .then((data) => {
             if (!data) {
                 const response = Response.make(404, 'Product Not Found', null);

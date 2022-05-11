@@ -286,6 +286,89 @@ function getProduct()
      */
 }
 
+function getProductWithSlug() 
+{
+     /**
+     * @openapi
+     * /products/{slug}:
+     *   get:
+     *     summary: Show a Product
+     *     tags:
+     *       - Products
+     *     security:
+     *       - bearerAuth: []
+     *     parameters:
+     *       - name: slug
+     *         in: path
+     *         required: true
+     *         schema:
+     *           type: string
+     *     responses:
+     *       200:
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: object
+     *               properties:
+     *                 code:
+     *                   type: integer
+     *                   default: 200             
+     *                 message:
+     *                   type: string
+     *                   default: Success             
+     *                 data:
+     *                   type: object
+     *                   properties:
+     *                     id:
+     *                       type: string
+     *                       default: 1
+     *                     category_id:
+     *                       type: string
+     *                       default: 1
+     *                     name:
+     *                       type: string
+     *                       default: Product 1
+     *                     slug:
+     *                       type: string
+     *                       default: product-1
+     *                     description:
+     *                       type: string
+     *                       default: Product 1 Description
+     *                     image_url:
+     *                       type: string
+     *                       default: null
+     *                     video_url:
+     *                       type: string
+     *                       default: null
+     *                     price:
+     *                       type: decimal
+     *                       default: 20.50
+     *                     discount:
+     *                       type: decimal
+     *                       default: 0.50
+     *                     tax:
+     *                       type: decimal
+     *                       default: 0.18
+     *                     is_active:
+     *                       type: boolean
+     *                       default: true
+     *       default:
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: object
+     *               properties:
+     *                 code:
+     *                   type: integer
+     *                   default: 404             
+     *                 message:
+     *                   type: string
+     *                   default: Not Found                           
+     *                 data:
+     *                   type: null
+     *                   default: null                            
+     */
+}
 
 function updateProduct() 
 {
