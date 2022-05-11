@@ -35,6 +35,26 @@ function createProduct()
      *               video_url:
      *                 type: string
      *                 default: null
+     *               images:
+     *                 type: array
+     *                 items:
+     *                   properties:
+     *                     url:
+     *                       type: string     
+     *                       default: https://picsum.photos/800/500    
+     *                     alt:
+     *                       type: string     
+     *                       default: Ecommerce Produc Image    
+     *               videos:
+     *                 type: array
+     *                 items:
+     *                   properties:
+     *                     url:
+     *                       type: string     
+     *                       default: https://picsum.photos/800/500    
+     *                     alt:
+     *                       type: string     
+     *                       default: Ecommerce Produc Video    
      *               price:
      *                 type: decimal
      *                 default: 20.50
@@ -91,6 +111,26 @@ function createProduct()
      *                     video_url:
      *                       type: string
      *                       default: null
+     *                     images:
+     *                       type: array
+     *                       items:
+     *                         properties:
+     *                           url:
+     *                             type: string     
+     *                             default: https://picsum.photos/800/500    
+     *                           alt:
+     *                             type: string     
+     *                             default: Ecommerce Produc Image    
+     *                     videos:
+     *                       type: array
+     *                       items:
+     *                         properties:
+     *                           url:
+     *                             type: string     
+     *                             default: https://picsum.photos/800/500    
+     *                           alt:
+     *                             type: string     
+     *                             default: Ecommerce Produc Video  
      *                     price:
      *                       type: decimal
      *                       default: 20.50
@@ -171,6 +211,26 @@ function getProducts()
      *                       video_url:
      *                         type: string
      *                         default: null
+     *                       images:
+     *                         type: array
+     *                         items:
+     *                           properties:
+     *                             url:
+     *                               type: string     
+     *                               default: https://picsum.photos/800/500    
+     *                             alt:
+     *                               type: string     
+     *                               default: Ecommerce Produc Image    
+     *                       videos:
+     *                         type: array
+     *                         items:
+     *                           properties:
+     *                             url:
+     *                               type: string     
+     *                               default: https://picsum.photos/800/500    
+     *                             alt:
+     *                               type: string     
+     *                               default: Ecommerce Produc Video 
      *                       price:
      *                         type: decimal
      *                         default: 20.50
@@ -256,6 +316,26 @@ function getProduct()
      *                     video_url:
      *                       type: string
      *                       default: null
+     *                     images:
+     *                       type: array
+     *                       items:
+     *                         properties:
+     *                           url:
+     *                             type: string     
+     *                             default: https://picsum.photos/800/500    
+     *                           alt:
+     *                             type: string     
+     *                             default: Ecommerce Produc Image    
+     *                     videos:
+     *                       type: array
+     *                       items:
+     *                         properties:
+     *                           url:
+     *                             type: string     
+     *                             default: https://picsum.photos/800/500    
+     *                           alt:
+     *                             type: string     
+     *                             default: Ecommerce Produc Video 
      *                     price:
      *                       type: decimal
      *                       default: 20.50
@@ -340,6 +420,26 @@ function getProductWithSlug()
      *                     video_url:
      *                       type: string
      *                       default: null
+     *                     images:
+     *                       type: array
+     *                       items:
+     *                         properties:
+     *                           url:
+     *                             type: string     
+     *                             default: https://picsum.photos/800/500    
+     *                           alt:
+     *                             type: string     
+     *                             default: Ecommerce Produc Image    
+     *                     videos:
+     *                       type: array
+     *                       items:
+     *                         properties:
+     *                           url:
+     *                             type: string     
+     *                             default: https://picsum.photos/800/500    
+     *                           alt:
+     *                             type: string     
+     *                             default: Ecommerce Produc Video 
      *                     price:
      *                       type: decimal
      *                       default: 20.50
@@ -417,6 +517,26 @@ function updateProduct()
      *               video_url:
      *                 type: string
      *                 default: null
+     *               images:
+     *                 type: array
+     *                 items:
+     *                   properties:
+     *                     url:
+     *                       type: string     
+     *                       default: https://picsum.photos/800/500    
+     *                     alt:
+     *                       type: string     
+     *                       default: Ecommerce Produc Image    
+     *               videos:
+     *                 type: array
+     *                 items:
+     *                   properties:
+     *                     url:
+     *                       type: string     
+     *                       default: https://picsum.photos/800/500    
+     *                     alt:
+     *                       type: string     
+     *                       default: Ecommerce Produc Video 
      *               price:
      *                 type: decimal
      *                 default: 20.50
@@ -469,6 +589,26 @@ function updateProduct()
      *                     video_url:
      *                       type: string
      *                       default: null
+     *                     images:
+     *                       type: array
+     *                       items:
+     *                         properties:
+     *                           url:
+     *                             type: string     
+     *                             default: https://picsum.photos/800/500    
+     *                           alt:
+     *                             type: string     
+     *                             default: Ecommerce Produc Image    
+     *                     videos:
+     *                       type: array
+     *                       items:
+     *                         properties:
+     *                           url:
+     *                             type: string     
+     *                             default: https://picsum.photos/800/500    
+     *                           alt:
+     *                             type: string     
+     *                             default: Ecommerce Produc Video 
      *                     price:
      *                       type: decimal
      *                       default: 20.50

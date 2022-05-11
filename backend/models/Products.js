@@ -20,6 +20,8 @@ const ProductSchema = new Schema({
     discount: Schema.Types.Decimal128,
     tax: Schema.Types.Decimal128,
     currency: String,
+    images: [],
+    videos: [],
     is_active: {
         type: Boolean,
         default: true,      
