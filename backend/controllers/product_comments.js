@@ -38,10 +38,7 @@ function store(arg) {
     })
     .then((data) => {
 
-        if(data) {
-            const response = Response.make(409, 'This record is available.', null);
-            arg.res.status(409).json(response);
-        } else {
+        if(!data) {
             const productComments = new ProductComments({ 
                 user_id, 
                 product_id, 
@@ -49,6 +46,24 @@ function store(arg) {
             }); 
 
             productComments.save()
+            .then((data) => {
+                const response = Response.make(200, 'Success', {
+                    id: data._id,
+                    user_id: data.user_id,
+                    product_id: data.product_id,
+                    comment: data.comment,
+                });
+                arg.res.status(200).json(response);
+            })
+            .catch((err) => {
+                const response = Response.make(400, 'Bad Request', err);
+                arg.res.status(400).json(response);
+            });
+        } else {
+            data.user_id = user_id;
+            data.product_id = product_id;
+            data.comment = comment;
+            data.save()
             .then((data) => {
                 const response = Response.make(200, 'Success', {
                     id: data._id,
