@@ -15,6 +15,7 @@ const user = require('./routes/user');
 const product = require('./routes/product');
 const product_category = require('./routes/product_category');
 const product_votes = require('./routes/product_votes');
+const product_comments = require('./routes/product_comments');
 const order = require('./routes/order');
 
 generateSwaggerDocs(app);
@@ -40,6 +41,7 @@ app.use(config.apiPath + '/users', user);
 app.use(config.apiPath + '/products', product);
 app.use(config.apiPath + '/product-categories', product_category);
 app.use(config.apiPath + '/product-votes', product_votes);
+app.use(config.apiPath + '/product-comments', product_comments);
 app.use(config.apiPath + '/orders', order);
 
 app.listen(port, () => {
