@@ -135,7 +135,7 @@ function update(arg) {
                     name: name, 
                     slug: slug, 
                     order: order, 
-                    is_active: order 
+                    is_active: is_active 
                 }, { new: true })
                 .then((data) => {
                     console.log(data);
