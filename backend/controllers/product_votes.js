@@ -37,32 +37,26 @@ function store(arg) {
         product_id: product_id
     })
     .then((data) => {
+        const productVotes = new ProductVotes({ 
+            user_id, 
+            product_id, 
+            degree, 
+        }); 
 
-        if(data) {
-            const response = Response.make(409, 'This record is available.', null);
-            arg.res.status(409).json(response);
-        } else {
-            const productVotes = new ProductVotes({ 
-                user_id, 
-                product_id, 
-                degree, 
-            }); 
-
-            productVotes.save()
-            .then((data) => {
-                const response = Response.make(200, 'Success', {
-                    id: data._id,
-                    user_id: data.user_id,
-                    product_id: data.product_id,
-                    degree: data.degree,
-                });
-                arg.res.status(200).json(response);
-            })
-            .catch((err) => {
-                const response = Response.make(400, 'Bad Request', err);
-                arg.res.status(400).json(response);
+        productVotes.save()
+        .then((data) => {
+            const response = Response.make(200, 'Success', {
+                id: data._id,
+                user_id: data.user_id,
+                product_id: data.product_id,
+                degree: data.degree,
             });
-        }
+            arg.res.status(200).json(response);
+        })
+        .catch((err) => {
+            const response = Response.make(400, 'Bad Request', err);
+            arg.res.status(400).json(response);
+        });
     });
 }
 
