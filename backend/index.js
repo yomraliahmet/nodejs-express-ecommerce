@@ -18,6 +18,7 @@ const product_votes = require('./routes/product_votes');
 const product_comments = require('./routes/product_comments');
 const contract = require('./routes/contract');
 const user_address = require('./routes/user_address');
+const user_contract = require('./routes/user_contract');
 const user_billing_information = require('./routes/user_billing_information');
 const order = require('./routes/order');
 
@@ -43,6 +44,7 @@ app.use(config.apiPath + '/auth', auth);
 app.use(config.apiPath + '/users', user);
 app.use(config.apiPath + '/user-addresses', user_address);
 app.use(config.apiPath + '/user-billing-informations', user_billing_information);
+app.use(config.apiPath + '/user-contracts', user_contract);
 app.use(config.apiPath + '/products', product);
 app.use(config.apiPath + '/product-categories', product_category);
 app.use(config.apiPath + '/product-votes', product_votes);
